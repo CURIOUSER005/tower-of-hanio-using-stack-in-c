@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0px;padding:0px;}
+#head{background-color:#009688;color:white;width:100%;height:400px;}
+#head h1{position:relative;top:90px;}
+#head_bar{position:relative;width:70%;height:100%;background-color:#F5F5F5;color:#616161;padding:30px;top:90px;text-align:justify;font-size:22px;}
+#head_bar u{font-weight:bold;font-size:25px;}
+#code_section{width:100%;heght:100%;padding-left:5px;border:1px solid gray;overflow-x:scroll;}
+#image_section{max-width:85%;height:100%;padding:10px;}
+#image_section img{width:100%;}
+#end_div{background-color:#263238;width:100%;height:200px;color:white;}
+#end_div center{position:relative;top:100px;font-size:25px;}

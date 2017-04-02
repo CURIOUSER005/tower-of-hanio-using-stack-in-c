@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://testingvideocode.net23.net/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Well organized and easy to understand how to make tower of hanoi program in c,how to make tower of hanoi program in c">
+<link rel="stylesheet" href="./Tower of hanoi game in c_files/css1.css" type="text/css">
+<title>Tower of hanoi game in c</title>
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.cpp1-assembler { color: #0000FF; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #3399FF; font-style: italic; }
+.cpp1-float { color: #800080; }
+.cpp1-hexadecimal { color: #800080; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #000000; }
+.cpp1-number { color: #800080; }
+.cpp1-octal { color: #800080; }
+.cpp1-preprocessor { color: #008000; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { background-color: #FFFFFF; color: #000000; }
+.cpp1-string { color: #0000FF; font-weight: bold; }
+.cpp1-symbol { color: #FF0000; font-weight: bold; }
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<div id="head">
+	<center>
+    <h1>Tower of Hanoi using C</h1>
+    <div id="head_bar">
+    	<u>Tower of Hanoi</u> is a mathematical game or puzzle. It consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+        <br><br>
+        The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:
+        <ol>
+<li>Only one disk can be moved at a time.</li>
+<li>Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.</li>
+<li>No disk may be placed on top of a smaller disk.</li>
+</ol>
+	<h4>These program can only run in window turbo C perfectly, because color code and window clear  concept are used </h4>
+    <p>
+    	The above code written in c without using graphics.h 
+    </p>
+    <div id="image_section">
+    	<img src="./Tower of hanoi game in c_files/img1.jpg">
+        <img src="./Tower of hanoi game in c_files/img2.png">
+        <img src="./Tower of hanoi game in c_files/img3.png">
+        <img src="./Tower of hanoi game in c_files/img4.png">
+        <img src="./Tower of hanoi game in c_files/img5.png">
+        <img src="./Tower of hanoi game in c_files/img6.png">
+    </div>
+    <br>
+	
+	<a href="https://www.000webhost.com/" onclick="this.href=&#39;https://www.000webhost.com/939033.html&#39;" target="_blank"><img src="./Tower of hanoi game in c_files/banner13.gif" alt="Web hosting" width="468" height="60" border="0"></a>
+    <div id="code_section">
+
+    <pre><code><span style="font: 11pt Consolas;"><span class="cpp1-comment">/*
+	program name: tower of hanio
+	program written: Sagar Rajendra Shinde
+	year: S.Y.CSE 
+*/
+</span><span class="cpp1-preprocessor">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;dos.h&gt;
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> pop1</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> pop2</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> pop3</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> push1</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> push2</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> push3</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> display</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> star</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> top1</span><span class="cpp1-symbol">=</span><span class="cpp1-number">2</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">=-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">=-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">n1</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">n2</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a1</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a2</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a3</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">b1</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">b2</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">b3</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">c</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-number">3</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">3</span><span class="cpp1-symbol">,</span><span class="cpp1-number">2</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">};
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-number">3</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">0</span><span class="cpp1-symbol">};
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-number">3</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">0</span><span class="cpp1-symbol">};
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> main</span><span class="cpp1-symbol">()
+{
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">33</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\t  welcome to tower game\n\n\t\t1:start\n\n\t\t2:quit\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"%d"</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n\tloading...\n\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">delay</span><span class="cpp1-symbol">(</span><span class="cpp1-number">5000</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">36</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">2</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&gt;=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">--)
+{
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">36</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"%d\t%d\t%d\n"</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">],</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">],</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]);
+}
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">sos</span><span class="cpp1-symbol">:
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">30</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\tenter tower number to pop the element : "</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"%d"</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">n1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n1</span><span class="cpp1-symbol">==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">pop1</span><span class="cpp1-symbol">();
+}
+</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n1</span><span class="cpp1-symbol">==</span><span class="cpp1-number">2</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">pop2</span><span class="cpp1-symbol">();
+}
+</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n1</span><span class="cpp1-symbol">==</span><span class="cpp1-number">3</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">pop3</span><span class="cpp1-symbol">();
+}
+</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\nerror tower1 "</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">30</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\tenter tower number push the element : "</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"%d"</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">n2</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n2</span><span class="cpp1-symbol">==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">push1</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n2</span><span class="cpp1-symbol">==</span><span class="cpp1-number">2</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">push2</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n2</span><span class="cpp1-symbol">==</span><span class="cpp1-number">3</span><span class="cpp1-symbol">)
+{</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">push3</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\nerror tower 2"</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-identifier">display</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\t\t\tnext"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">delay</span><span class="cpp1-symbol">(</span><span class="cpp1-number">3000</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">goto</span><span class="cpp1-space"> sos</span><span class="cpp1-symbol">;
+}
+</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space"> exit</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+}
+}
+</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-symbol">{</span><span class="cpp1-space"> clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">31</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n\t\tTHANK YOU for using\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-identifier">star</span><span class="cpp1-symbol">();
+}
+</span><span class="cpp1-identifier">getch</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+}
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> pop1</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> a1</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space"> stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">]=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> top1</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> a1</span><span class="cpp1-symbol">;
+}
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> pop2</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> a2</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space"> stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">]=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> top2</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> a2</span><span class="cpp1-symbol">;
+}
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> pop3</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> a3</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space"> stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">]=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> top3</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> a3</span><span class="cpp1-symbol">;
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> push1</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> u</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">+</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">b1</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">b1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">u</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">b1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">b1</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">u</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">b1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> k</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top1</span><span class="cpp1-symbol">]&gt;</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">])
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n\nerror lower number is smaller\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  exit</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">}
+}
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> push2</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> u</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">+</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">b2</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">b2</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">u</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">b2</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">b2</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">u</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">b2</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> k</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top2</span><span class="cpp1-symbol">]&gt;</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">])
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n\nerror lower number is smaller\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  exit</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">}
+}
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> push3</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> u</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">+</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">b3</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">b3</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">u</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">b3</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">b3</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">u</span><span class="cpp1-symbol">;
+</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">b3</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> k</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">top3</span><span class="cpp1-symbol">]&gt;</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">])
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n\nerror lower number is smaller\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  exit</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">}
+}
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> display</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space"> star</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">36</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">2</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&gt;=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">--)
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"%d\t%d\t%d\n"</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">stack1</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">],</span><span class="cpp1-identifier">stack2</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">],</span><span class="cpp1-identifier">stack3</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]);
+</span><span class="cpp1-space"> </span><span class="cpp1-symbol">}
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n\n"</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> star</span><span class="cpp1-symbol">();
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> star</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\x1B[1;%dm"</span><span class="cpp1-symbol">,</span><span class="cpp1-number">32</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">"\n************************************************\n\n\n\n"</span><span class="cpp1-symbol">);
+}
+</span></span>
+</code></pre>
+</div>
+	
+    </div>
+    </center>
+    <br>
+    <div id="end_div">
+    	<center>
+        	Presented by sagar shinde
+        </center>
+</div>
+</div>
+
+
+
+
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="./Tower of hanoi game in c_files/count.php"></script>
+<!-- End Of Analytics Code -->
+</body></html>
